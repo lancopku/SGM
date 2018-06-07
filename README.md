@@ -24,7 +24,7 @@ Two datasets are available at https://drive.google.com/file/d/1DbYWVXt_J_6wAgjzV
 
 ## Preprocessing
 ```
-python3 preprocess.py -load_data path_to_data -save_data path_to_store_data 
+python3 preprocess.py 
 ```
 Remember to put the data into a folder and name them *train.src*, *train.tgt*, *valid.src*, *valid.tgt*, *test.src* and *test.tgt*, and make a new folder inside called *data*
 
