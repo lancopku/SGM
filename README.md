@@ -7,14 +7,20 @@ This is the code for our paper *SGM: Sequence Generation Model for Multi-label C
 * RCV1-V2
 * AAPD
 
-Two dataset are available at https://drive.google.com/file/d/1DbYWVXt_J_6wAgjzVh9LG_MG1UCjBQuS/view?usp=sharing
+Two datasets are available at https://drive.google.com/file/d/1DbYWVXt_J_6wAgjzVh9LG_MG1UCjBQuS/view?usp=sharing
+
+***************************************************************
 
 ## Requirements
 * Ubuntu 16.0.4
 * Python 3.5
 * Pytorch 0.3.1
 
+***************************************************************
+
 ## Reproducibility
+
+***************************************************************
 
 ## Preprocessing
 ```
@@ -26,14 +32,14 @@ Remember to put the data into a folder and name them *train.src*, *train.tgt*, *
 
 ## Training
 ```
-python3 train.py -log log_name -config config_yaml -gpus id
+python3 train.py -gpus id -log log_name
 ```
 
 ****************************************************************
 
 ## Evaluation
 ```
-python3 train.py -log log_name -config config_yaml -gpus id -restore checkpoint -mode eval
+python3 predict.py -gpus id -restore checkpoint -log log_name
 ```
 
 *******************************************************************
