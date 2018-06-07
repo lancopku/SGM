@@ -20,7 +20,7 @@ Two datasets are available at https://drive.google.com/file/d/1DbYWVXt_J_6wAgjzV
 ***************************************************************
 
 ## Reproducibility
-We provide the pretrained checkpoints of the SGM model and the SGM+GE model on the RCV1-V2 dataset to help you reproduce our reproted experimental results. The detailed reproduction steps are as follows:
+We provide the pretrained checkpoints of the SGM model and the SGM+GE model on the RCV1-V2 dataset to help you reproduce our reported experimental results. The detailed reproduction steps are as follows:
 
 - Please download the RCV1-V2 dataset and checkpoints first, then put them in the folder *./data/data/*
 - Preprocessing: ```python3 preprocess.py ```
