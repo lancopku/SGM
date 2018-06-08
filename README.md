@@ -51,7 +51,7 @@ python3 predict.py -gpus id -restore checkpoint -log log_name
 *******************************************************************
 
 ## Citation
-If you use the above codes or the AAPD dataset for your research, please cite the paper:
+If you use the above code or the AAPD dataset for your research, please cite the paper:
 
 ```
 @inproceedings{YangCOLING2018,
