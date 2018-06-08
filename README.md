@@ -1,4 +1,4 @@
-# Sequence Generation Model with Global Embedding
+# Sequence Generation Model for Multi-label Classification
 - This is the code for our paper *SGM: Sequence Generation Model for Multi-label Classification*
 - Be careful: the provided code is based on the RCV1-V2 dataset. If you need to run the code on other datasets, please correspondly modify all program statements that relate to the specific name of the dataset.
 
