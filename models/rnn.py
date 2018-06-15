@@ -192,8 +192,9 @@ class rnn_decoder(nn.Module):
         inputs += input
         max_time_step = self.config.max_tgt_len
         soft_score = None
+        mask = None
         for i in range(max_time_step):
-            output, state, attn_weights = self.sample_one(inputs[i], soft_score, state, contexts)
+            output, state, attn_weights = self.sample_one(inputs[i], soft_score, state, contexts, mask)
             if self.config.global_emb:
                 soft_score = F.softmax(output)
             predicted = output.max(1)[1]
@@ -201,12 +202,17 @@ class rnn_decoder(nn.Module):
             sample_ids += [predicted]
             outputs += [output]
             attns += [attn_weights]
+            if self.config.mask:
+                if mask is None:
+                    mask = predicted.unsqueeze(1).long()
+                else:
+                    mask = torch.cat((mask, predicted.unsqueeze(1)), 1)
 
         sample_ids = torch.stack(sample_ids)
         attns = torch.stack(attns)
         return sample_ids, (outputs, attns)
 
-    def sample_one(self, input, soft_score, state, contexts):
+    def sample_one(self, input, soft_score, state, contexts, mask):
         if self.config.global_emb:
             batch_size = contexts.size(0)
             a, b = self.embedding.weight.size()
@@ -222,4 +228,7 @@ class rnn_decoder(nn.Module):
         output, state = self.rnn(emb, state)
         hidden, attn_weigths = self.attention(output, contexts)
         output = self.compute_score(hidden)
+        if self.config.mask:
+            if mask is not None:
+                output = output.scatter_(1, mask, -9999999999)
         return output, state, attn_weigths

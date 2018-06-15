@@ -106,7 +106,8 @@ class seq2seq(nn.Module):
                 for __ in range(batch_size)]
 
         # (2) run the decoder to generate sentences, using beam search.
-
+        
+        mask = None
         soft_score = None
         for i in range(self.config.max_tgt_len):
 
@@ -119,8 +120,14 @@ class seq2seq(nn.Module):
                       .t().contiguous().view(-1))
 
             # Run one step.
-            output, decState, attn = self.decoder.sample_one(inp, soft_score, decState, contexts)
+            output, decState, attn = self.decoder.sample_one(inp, soft_score, decState, contexts, mask)
             soft_score = F.softmax(output)
+            predicted = output.max(1)[1]
+            if self.config.mask:
+                if mask is None:
+                    mask = predicted.unsqueeze(1).long()
+                else:
+                    mask = torch.cat((mask, predicted.unsqueeze(1)), 1)
             # decOut: beam x rnn_size
 
             # (b) Compute a vector of batch*beam word scores.
