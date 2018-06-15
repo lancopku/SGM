@@ -8,6 +8,7 @@ learning_rate: 0.001
 max_grad_norm: 10
 learning_rate_decay: 0.5
 global_emb: False
+mask: True
 schedule: True
 bidirec: True
 start_decay_at: 5
