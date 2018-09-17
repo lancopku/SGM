@@ -55,9 +55,17 @@ If you use the above code or the AAPD dataset for your research, please cite the
 
 ```
 @inproceedings{YangCOLING2018,
-   author = {Pengcheng Yang and Xu Sun and Wei Li and Shuming Ma and Wei Wu and Houfeng Wang},
-   title = {SGM: Sequence Generation Model for Multi-label Classification},
-   booktitle = {{COLING} 2018},
-   year = {2018}
+  author    = {Pengcheng Yang and
+               Xu Sun and
+               Wei Li and
+               Shuming Ma and
+               Wei Wu and
+               Houfeng Wang},
+  title     = {{SGM:} Sequence Generation Model for Multi-label Classification},
+  booktitle = {Proceedings of the 27th International Conference on Computational
+               Linguistics, {COLING} 2018, Santa Fe, New Mexico, USA, August 20-26,
+               2018},
+  pages     = {3915--3926},
+  year      = {2018}
 }
 ```
