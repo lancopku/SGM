@@ -7,7 +7,7 @@ def model_opts(parser):
     parser.add_argument('-restore', default='./checkpoints/sgmge.pt', type=str,
                         help="restore checkpoint")
     parser.add_argument('-seed', default=1234, type=int, 
-                        help="Random seed")
+                        help="random seed")
     parser.add_argument('-model', default='seq2seq', type=str,
                         help="model selection")
     parser.add_argument('-mode', default='train', type=str,
