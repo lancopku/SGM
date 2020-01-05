@@ -21,7 +21,7 @@ In general, this code is more suitable for the following application scenarios:
 ***************************************************************
 
 ## Dataset
-Our used RCV1-V2 dataset can be downloaded from google drive with [this link](https://drive.google.com/file/d/19Y2d8GTcpfvS1y6B2pKJaejd7i1YPteH/view?usp=sharing). The structure of the folders on drive is:
+Our used RCV1-V2 dataset can be downloaded from google drive with [this link](https://drive.google.com/drive/folders/1lBt2MjEoh4CG2jjt4nMgHro2h3k2gwUH?usp=sharing). The structure of the folders on drive is:
 ```
 Google Drive Root		   # The compressed zip file
  |-- data                          # The unprocessed raw data files
@@ -44,7 +44,7 @@ We found that the valid-set in the previous version is so small that the model t
 ## Reproducibility
 We provide the pretrained checkpoints of the SGM model and the SGM+GE model on the RCV1-V2 dataset to help you to reproduce our reported experimental results. The detailed reproduction steps are as follows:
 
-* Please download the RCV1-V2 dataset and checkpoints first by clicking on the [link](https://drive.google.com/file/d/19Y2d8GTcpfvS1y6B2pKJaejd7i1YPteH/view?usp=sharing), then put them in the same directory as these codes. The correct structure of the folders should be: 
+* Please download the RCV1-V2 dataset and checkpoints first by clicking on the [link](https://drive.google.com/drive/folders/1lBt2MjEoh4CG2jjt4nMgHro2h3k2gwUH?usp=sharing), then put them in the same directory as these codes. The correct structure of the folders should be: 
 ```
 Root
  |-- data                          
