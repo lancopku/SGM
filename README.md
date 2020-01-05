@@ -62,31 +62,33 @@ Root
 
 * Preprocess the downloaded data:
 ```bash
-python3 preprocess.py -load_data ./data/ -save_data ./data/save_data/
+python3 preprocess.py -load_data ./data/ -save_data ./data/save_data/ -src_vocab_size 50000
 ```
 All the preprocessed data will be stored in the folder `./data/save_data/`
 
 * Perform prediction and evaluation: 
 ```bash
-python3 predict.py -gpus gpu_id -log results/
+python3 predict.py -gpus gpu_id -data ./data/save_data/ -batch_size 64 -restore ./checkpoints/sgm.pt -log results/
 ```
 The predicted labels and evaluation scores will be stored in the folder `results`
 
 ***************************************************************
 
-## Preprocessing
-You can preprocess the downloaded dataset with the following command:
+## Training from scratch
+
+### Preprocessing
+You can preprocess the dataset with the following command:
 ```
 python3 preprocess.py \
-	-load_data ./data/ \              # input file dir for the data
-	-save_data ./data/save_data/ \    # output file dir for the processed data
+	-load_data load_data_path \       # input file dir for the data
+	-save_data save_data_path \       # output file dir for the processed data
 	-src_vocab_size 50000             # size of the source vocabulary
 ```
-Other parameter descriptions can be found in `preprocess.py`
+Note that all data path must end with `/`. Other parameter descriptions can be found in `preprocess.py`
 
 ***************************************************************
 
-## Training
+### Training
 You can perform model training with the following command:
 ```
 python3 train.py -gpus gpu_id -config model_config -log save_path
@@ -96,13 +98,13 @@ All log files and checkpoints during training will be saved in `save_path`. The 
 
 ****************************************************************
 
-## Testing
+### Testing
 You can perform testing with the following command:
 ```
-python3 predict.py -gpus gpu_id -data ./data/save_data/ -batch_size 64 -log results/
+python3 predict.py -gpus gpu_id -data save_data_path -batch_size batch_size -log log_path
 ```
 
-The predicted labels and evaluation scores will be stored in the folder `results`. The detailed parameter descriptions can be found in `predict.py`
+The predicted labels and evaluation scores will be stored in the folder `log_path`. The detailed parameter descriptions can be found in `predict.py`
 
 *******************************************************************
 
